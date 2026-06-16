@@ -1,0 +1,20 @@
+{
+  "name": "life-sciences-scigantic",
+  "version": "0.1.0",
+  "domain": "Cross-domain data catalog",
+  "databases": [
+    {
+      "name": "Scigantic",
+      "tools": [
+        "scigantic_search",
+        "scigantic_get_archive",
+        "scigantic_get_schema_card",
+        "scigantic_get_data_access",
+        "scigantic_list_files",
+        "scigantic_lookup_paper"
+      ],
+      "authRequired": false
+    }
+  ],
+  "credentials": []
+}
