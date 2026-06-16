@@ -117,6 +117,9 @@ Create or edit `.kiro/settings/mcp.json` in your Kiro workspace:
     },
     "life-sciences-structural": {
       "command": "/path/to/KiroLS/.venv/bin/life-sciences-structural"
+    },
+    "life-sciences-scigantic": {
+      "command": "/path/to/KiroLS/.venv/bin/life-sciences-scigantic"
     }
   }
 }
@@ -198,6 +201,7 @@ Expected: 338+ tests passing for kiro-life-sciences, 32 for life-sciences-common
 | 22 | **life-sciences-datastandards** | MAGE-TAB, ISA-Tab, SBML, BioPAX | 7 | None |
 | 23 | **life-sciences-cloud** | AWS Batch, Terra, Galaxy | 7 | TERRA_TOKEN |
 | 24 | **life-sciences-aiml** | ESM, AlphaFold, BioNLP (BioGPT/PubMedBERT) | 6 | None |
+| 25 | **life-sciences-scigantic** | Scigantic (cross-domain dataset catalog + schema cards) | 6 | None |
 
 ### Domain Skills (10)
 
