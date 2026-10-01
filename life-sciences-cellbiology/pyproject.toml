@@ -53,3 +53,10 @@ packages = ["src/life_sciences_cellbiology"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 asyncio_mode = "auto"
+
+[tool.uv.sources]
+# Pin the shared base package to its local path within this repository so that
+# pip/uv/uvx never resolve "life-sciences-common" from public PyPI. The name is
+# not registered on PyPI; resolving it from the public index would be a
+# dependency-confusion vector (AWS VDP H1-4044548).
+life-sciences-common = { path = "../life-sciences-common", editable = true }
