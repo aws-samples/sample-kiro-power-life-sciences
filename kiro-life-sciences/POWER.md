@@ -26,19 +26,21 @@ Install the `kiro-life-sciences` Power from the Kiro Powers panel. This installs
 
 Add the MCP servers you need to your `mcp.json`. Each server is a standalone Python package runnable via `uvx`:
 
+> **Security note:** These packages are not published to PyPI. Always launch them with `uvx --from git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=<package>` (or `--from /path/to/clone/<package>`) as shown below. Never run `uvx <package>` with a bare name: that resolves from public PyPI, where anyone could register the name.
+
 ```json
 {
   "mcpServers": {
     "life-sciences-genomics": {
       "command": "uvx",
-      "args": ["life-sciences-genomics"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-genomics", "life-sciences-genomics"],
       "env": {
         "NCBI_API_KEY": "${secret:ncbi-api-key}"
       }
     },
     "life-sciences-proteomics": {
       "command": "uvx",
-      "args": ["life-sciences-proteomics"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-proteomics", "life-sciences-proteomics"]
     }
   }
 }
@@ -91,7 +93,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-genomics": {
     "command": "uvx",
-    "args": ["life-sciences-genomics"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-genomics", "life-sciences-genomics"],
     "env": {
       "NCBI_API_KEY": "${secret:ncbi-api-key}",
       "COSMIC_API_KEY": "${secret:cosmic-api-key}"
@@ -110,7 +112,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-proteomics": {
     "command": "uvx",
-    "args": ["life-sciences-proteomics"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-proteomics", "life-sciences-proteomics"]
   }
 }
 ```
@@ -125,7 +127,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-structural": {
     "command": "uvx",
-    "args": ["life-sciences-structural"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-structural", "life-sciences-structural"]
   }
 }
 ```
@@ -140,7 +142,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-pathways": {
     "command": "uvx",
-    "args": ["life-sciences-pathways"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-pathways", "life-sciences-pathways"]
   }
 }
 ```
@@ -155,7 +157,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-ontologies": {
     "command": "uvx",
-    "args": ["life-sciences-ontologies"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-ontologies", "life-sciences-ontologies"]
   }
 }
 ```
@@ -170,7 +172,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-clinical": {
     "command": "uvx",
-    "args": ["life-sciences-clinical"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-clinical", "life-sciences-clinical"],
     "env": {
       "OMIM_API_KEY": "${secret:omim-api-key}",
       "DRUGBANK_API_KEY": "${secret:drugbank-api-key}"
@@ -189,7 +191,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-model-organisms": {
     "command": "uvx",
-    "args": ["life-sciences-model-organisms"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-model-organisms", "life-sciences-model-organisms"]
   }
 }
 ```
@@ -204,7 +206,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-molbio": {
     "command": "uvx",
-    "args": ["life-sciences-molbio"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-molbio", "life-sciences-molbio"]
   }
 }
 ```
@@ -219,7 +221,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-cheminformatics": {
     "command": "uvx",
-    "args": ["life-sciences-cheminformatics"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cheminformatics", "life-sciences-cheminformatics"],
     "env": {
       "CHEMSPIDER_API_KEY": "${secret:chemspider-api-key}"
     }
@@ -237,7 +239,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-immunology": {
     "command": "uvx",
-    "args": ["life-sciences-immunology"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-immunology", "life-sciences-immunology"],
     "env": {
       "IMMPORT_USERNAME": "${secret:immport-username}",
       "IMMPORT_PASSWORD": "${secret:immport-password}"
@@ -256,7 +258,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-microbiology": {
     "command": "uvx",
-    "args": ["life-sciences-microbiology"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-microbiology", "life-sciences-microbiology"]
   }
 }
 ```
@@ -271,7 +273,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-metabolomics": {
     "command": "uvx",
-    "args": ["life-sciences-metabolomics"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-metabolomics", "life-sciences-metabolomics"]
   }
 }
 ```
@@ -286,7 +288,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-epigenomics": {
     "command": "uvx",
-    "args": ["life-sciences-epigenomics"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-epigenomics", "life-sciences-epigenomics"]
   }
 }
 ```
@@ -301,7 +303,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-imaging": {
     "command": "uvx",
-    "args": ["life-sciences-imaging"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-imaging", "life-sciences-imaging"],
     "env": {
       "OMERO_HOST": "${secret:omero-host}",
       "OMERO_USERNAME": "${secret:omero-username}",
@@ -321,7 +323,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-agriculture": {
     "command": "uvx",
-    "args": ["life-sciences-agriculture"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-agriculture", "life-sciences-agriculture"],
     "env": {
       "PHYTOZOME_USERNAME": "${secret:phytozome-username}",
       "PHYTOZOME_PASSWORD": "${secret:phytozome-password}"
@@ -340,7 +342,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-ecology": {
     "command": "uvx",
-    "args": ["life-sciences-ecology"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-ecology", "life-sciences-ecology"],
     "env": {
       "IUCN_API_KEY": "${secret:iucn-api-key}"
     }
@@ -358,7 +360,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-neuroscience": {
     "command": "uvx",
-    "args": ["life-sciences-neuroscience"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-neuroscience", "life-sciences-neuroscience"]
   }
 }
 ```
@@ -373,7 +375,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-cellbiology": {
     "command": "uvx",
-    "args": ["life-sciences-cellbiology"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cellbiology", "life-sciences-cellbiology"]
   }
 }
 ```
@@ -388,7 +390,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-healthcare": {
     "command": "uvx",
-    "args": ["life-sciences-healthcare"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-healthcare", "life-sciences-healthcare"],
     "env": {
       "FHIR_BASE_URL": "${secret:fhir-base-url}",
       "REDCAP_API_KEY": "${secret:redcap-api-key}",
@@ -408,7 +410,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-biobanking": {
     "command": "uvx",
-    "args": ["life-sciences-biobanking"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-biobanking", "life-sciences-biobanking"],
     "env": {
       "LIMS_BASE_URL": "${secret:lims-base-url}",
       "LIMS_API_KEY": "${secret:lims-api-key}"
@@ -427,7 +429,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-pipelines": {
     "command": "uvx",
-    "args": ["life-sciences-pipelines"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-pipelines", "life-sciences-pipelines"]
   }
 }
 ```
@@ -442,7 +444,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-datastandards": {
     "command": "uvx",
-    "args": ["life-sciences-datastandards"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-datastandards", "life-sciences-datastandards"]
   }
 }
 ```
@@ -457,7 +459,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-cloud": {
     "command": "uvx",
-    "args": ["life-sciences-cloud"],
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cloud", "life-sciences-cloud"],
     "env": {
       "TERRA_API_KEY": "${secret:terra-api-key}",
       "GALAXY_BASE_URL": "${secret:galaxy-base-url}",
@@ -477,7 +479,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-aiml": {
     "command": "uvx",
-    "args": ["life-sciences-aiml"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-aiml", "life-sciences-aiml"]
   }
 }
 ```
@@ -492,7 +494,7 @@ The Power does not contain MCP server implementations. It knows about all 25 ser
 {
   "life-sciences-cancergenomics": {
     "command": "uvx",
-    "args": ["life-sciences-cancergenomics"]
+    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cancergenomics", "life-sciences-cancergenomics"]
   }
 }
 ```
@@ -689,28 +691,28 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
   "mcpServers": {
     "life-sciences-genomics": {
       "command": "uvx",
-      "args": ["life-sciences-genomics"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-genomics", "life-sciences-genomics"],
       "env": { "NCBI_API_KEY": "${secret:ncbi-api-key}" }
     },
     "life-sciences-proteomics": {
       "command": "uvx",
-      "args": ["life-sciences-proteomics"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-proteomics", "life-sciences-proteomics"]
     },
     "life-sciences-structural": {
       "command": "uvx",
-      "args": ["life-sciences-structural"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-structural", "life-sciences-structural"]
     },
     "life-sciences-pathways": {
       "command": "uvx",
-      "args": ["life-sciences-pathways"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-pathways", "life-sciences-pathways"]
     },
     "life-sciences-ontologies": {
       "command": "uvx",
-      "args": ["life-sciences-ontologies"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-ontologies", "life-sciences-ontologies"]
     },
     "life-sciences-clinical": {
       "command": "uvx",
-      "args": ["life-sciences-clinical"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-clinical", "life-sciences-clinical"],
       "env": {
         "OMIM_API_KEY": "${secret:omim-api-key}",
         "DRUGBANK_API_KEY": "${secret:drugbank-api-key}"
@@ -718,20 +720,20 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
     },
     "life-sciences-model-organisms": {
       "command": "uvx",
-      "args": ["life-sciences-model-organisms"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-model-organisms", "life-sciences-model-organisms"]
     },
     "life-sciences-molbio": {
       "command": "uvx",
-      "args": ["life-sciences-molbio"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-molbio", "life-sciences-molbio"]
     },
     "life-sciences-cheminformatics": {
       "command": "uvx",
-      "args": ["life-sciences-cheminformatics"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cheminformatics", "life-sciences-cheminformatics"],
       "env": { "CHEMSPIDER_API_KEY": "${secret:chemspider-api-key}" }
     },
     "life-sciences-immunology": {
       "command": "uvx",
-      "args": ["life-sciences-immunology"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-immunology", "life-sciences-immunology"],
       "env": {
         "IMMPORT_USERNAME": "${secret:immport-username}",
         "IMMPORT_PASSWORD": "${secret:immport-password}"
@@ -739,19 +741,19 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
     },
     "life-sciences-microbiology": {
       "command": "uvx",
-      "args": ["life-sciences-microbiology"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-microbiology", "life-sciences-microbiology"]
     },
     "life-sciences-metabolomics": {
       "command": "uvx",
-      "args": ["life-sciences-metabolomics"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-metabolomics", "life-sciences-metabolomics"]
     },
     "life-sciences-epigenomics": {
       "command": "uvx",
-      "args": ["life-sciences-epigenomics"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-epigenomics", "life-sciences-epigenomics"]
     },
     "life-sciences-imaging": {
       "command": "uvx",
-      "args": ["life-sciences-imaging"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-imaging", "life-sciences-imaging"],
       "env": {
         "OMERO_HOST": "${secret:omero-host}",
         "OMERO_USERNAME": "${secret:omero-username}",
@@ -760,7 +762,7 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
     },
     "life-sciences-agriculture": {
       "command": "uvx",
-      "args": ["life-sciences-agriculture"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-agriculture", "life-sciences-agriculture"],
       "env": {
         "PHYTOZOME_USERNAME": "${secret:phytozome-username}",
         "PHYTOZOME_PASSWORD": "${secret:phytozome-password}"
@@ -768,20 +770,20 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
     },
     "life-sciences-ecology": {
       "command": "uvx",
-      "args": ["life-sciences-ecology"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-ecology", "life-sciences-ecology"],
       "env": { "IUCN_API_KEY": "${secret:iucn-api-key}" }
     },
     "life-sciences-neuroscience": {
       "command": "uvx",
-      "args": ["life-sciences-neuroscience"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-neuroscience", "life-sciences-neuroscience"]
     },
     "life-sciences-cellbiology": {
       "command": "uvx",
-      "args": ["life-sciences-cellbiology"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cellbiology", "life-sciences-cellbiology"]
     },
     "life-sciences-healthcare": {
       "command": "uvx",
-      "args": ["life-sciences-healthcare"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-healthcare", "life-sciences-healthcare"],
       "env": {
         "FHIR_BASE_URL": "${secret:fhir-base-url}",
         "REDCAP_API_KEY": "${secret:redcap-api-key}",
@@ -790,7 +792,7 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
     },
     "life-sciences-biobanking": {
       "command": "uvx",
-      "args": ["life-sciences-biobanking"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-biobanking", "life-sciences-biobanking"],
       "env": {
         "LIMS_BASE_URL": "${secret:lims-base-url}",
         "LIMS_API_KEY": "${secret:lims-api-key}"
@@ -798,15 +800,15 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
     },
     "life-sciences-pipelines": {
       "command": "uvx",
-      "args": ["life-sciences-pipelines"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-pipelines", "life-sciences-pipelines"]
     },
     "life-sciences-datastandards": {
       "command": "uvx",
-      "args": ["life-sciences-datastandards"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-datastandards", "life-sciences-datastandards"]
     },
     "life-sciences-cloud": {
       "command": "uvx",
-      "args": ["life-sciences-cloud"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cloud", "life-sciences-cloud"],
       "env": {
         "TERRA_API_KEY": "${secret:terra-api-key}",
         "GALAXY_BASE_URL": "${secret:galaxy-base-url}",
@@ -815,11 +817,11 @@ Here's a full `mcp.json` configuration with all 25 MCP servers:
     },
     "life-sciences-aiml": {
       "command": "uvx",
-      "args": ["life-sciences-aiml"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-aiml", "life-sciences-aiml"]
     },
     "life-sciences-cancergenomics": {
       "command": "uvx",
-      "args": ["life-sciences-cancergenomics"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-cancergenomics", "life-sciences-cancergenomics"]
     }
   }
 }

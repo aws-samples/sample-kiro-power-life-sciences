@@ -248,19 +248,21 @@ Install the `kiro-life-sciences` Power from the Kiro Powers panel. This installs
 
 Add the MCP servers you need to your `mcp.json`. Each server is a standalone Python package runnable via `uvx`:
 
+> **Security note:** These packages are not published to PyPI. Always launch them with `uvx --from git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=<package>` (or `--from /path/to/clone/<package>`) as shown below. Never run `uvx <package>` with a bare name: that resolves from public PyPI, where anyone could register the name.
+
 ```json
 {
   "mcpServers": {
     "life-sciences-genomics": {
       "command": "uvx",
-      "args": ["life-sciences-genomics"],
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-genomics", "life-sciences-genomics"],
       "env": {
         "NCBI_API_KEY": "${secret:ncbi-api-key}"
       }
     },
     "life-sciences-proteomics": {
       "command": "uvx",
-      "args": ["life-sciences-proteomics"]
+      "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-proteomics", "life-sciences-proteomics"]
     }
   }
 }
