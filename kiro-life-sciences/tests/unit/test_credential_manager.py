@@ -115,7 +115,7 @@ class TestStore:
             "mcpServers": {
                 "life-sciences-genomics": {
                     "command": "uvx",
-                    "args": ["life-sciences-genomics"],
+                    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-genomics", "life-sciences-genomics"],
                 }
             }
         })
@@ -161,7 +161,7 @@ class TestStore:
             "mcpServers": {
                 "life-sciences-genomics": {
                     "command": "uvx",
-                    "args": ["life-sciences-genomics"],
+                    "args": ["--from", "git+https://github.com/aws-samples/sample-kiro-power-life-sciences#subdirectory=life-sciences-genomics", "life-sciences-genomics"],
                     "env": {
                         "EXISTING_VAR": "${secret:existing-var}"
                     }
