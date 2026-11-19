@@ -97,6 +97,15 @@ uv pip install -e ./life-sciences-aiml
 uv pip install -e ./life-sciences-cancergenomics
 ```
 
+> **Where `life-sciences-common` comes from.** `life-sciences-common` is **not
+> published on PyPI**; it lives only in this repository. Every discipline
+> package's `pyproject.toml` pins it to the in-repo path via `[tool.uv.sources]`,
+> so `uv pip install`, `uv tool install`, and `uvx --from <path-or-git-url> <server>`
+> resolve it locally and never consult the public index (this closes a
+> dependency-confusion vector). Plain `pip` ignores `tool.uv.sources`, so if you
+> use `pip` instead of `uv`, always install `./life-sciences-common` first (as
+> above) so `pip` never goes looking for `life-sciences-common` on PyPI.
+
 ### Step 3: Copy the Power into Kiro
 
 ```bash
